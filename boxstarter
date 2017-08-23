@@ -1,0 +1,83 @@
+# Patch box
+Install-WindowsUpdate -AcceptEula
+if (Test-PendingReboot) { Invoke-Reboot }
+
+# Install donet and powershell
+
+cinst -y DotNet3.5
+cinst -y DotNet4.5
+cinst -y powershell
+Update-ExecutionPolicy Remote-Signed
+
+if (Test-PendingReboot) { Invoke-Reboot }
+
+# Install Windows Features
+
+#Enable Web Services
+cinst IIS-WebServerRole -source WindowsFeatures
+cinst IIS-ISAPIFilter -source WindowsFeatures
+cinst IIS-ISAPIExtensions -source WindowsFeatures
+cinst IIS-ASPNet45 -source WindowsFeatures
+cinst WCF-Http-Activation -source WindowsFeatures 
+
+if (Test-PendingReboot) { Invoke-Reboot }
+
+# Console
+cinst -y cmder
+
+# Programming Langs and tools 
+
+cinst -y nvm
+cinst -y python
+cinst -y pip
+cinst -y jre8
+
+# Reboot time
+Invoke-Reboot
+
+# Install global node packages
+
+nvm install 6.11
+nvm use 6.11
+npm install -g grunt-cli gulp bower
+
+# Git
+cinst -y git.install
+cinst -y poshgit
+cinst -y git-credential-winstore
+
+if (Test-PendingReboot) { Invoke-Reboot }
+
+# Visual studio
+
+cinst -y visualstudio2017enterprise
+cinst -y visualstudio2017-workload-netweb
+cinst -y visualstudio2017-workload-nativedesktop
+cinst -y visualstudio2017-workload-node
+cinst -y resharper-platform
+
+if (Test-PendingReboot) { Invoke-Reboot }
+
+# Dev Requirements
+
+cinst -y redis-64
+
+if (Test-PendingReboot) { Invoke-Reboot }
+
+# Browsers
+
+cinst -y googlechrome
+cinst -y firefox
+
+# Utils
+
+cinst -y 7zip
+cinst -y sublimetext3
+cinst -y sublimetext3-contextmenu
+
+
+# Confiure windows settings
+
+Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions -EnableShowFullPathInTitleBar
+Enable-RemoteDesktop
+Disable-BingSearch
