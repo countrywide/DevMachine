@@ -3,7 +3,7 @@
 cinst -y DotNet3.5
 cinst -y DotNet4.5
 cinst -y powershell
-Update-ExecutionPolicy Remote-Signed
+Update-ExecutionPolicy RemoteSigned
 
 if (Test-PendingReboot) { Invoke-Reboot }
 
