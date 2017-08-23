@@ -1,3 +1,8 @@
+$Boxstarter.AutoLogin=$true
+$Boxstarter.RebootOk=$true
+
+if (Test-PendingReboot) { Invoke-Reboot }
+
 # Install donet and powershell
 
 cinst -y DotNet3.5
