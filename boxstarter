@@ -75,6 +75,7 @@ cinst -y firefox
 cinst -y 7zip
 cinst -y sublimetext3
 cinst -y sublimetext3-contextmenu
+cinst -y slack
 
 
 # Confiure windows settings
