@@ -34,13 +34,15 @@ cinst -y pip
 cinst -y jre8
 
 # Reboot time
-Invoke-Reboot
+# Invoke-Reboot
 
 # Install global node packages
+# Reboot bug and RefreshEnv.cmd doesn't seem to pickup nvm so we can't install with nvm or npm here
+# Needs to be manaual
 
-nvm install 6.11
-nvm use 6.11
-npm install -g grunt-cli gulp bower
+# nvm install 6.11
+# nvm use 6.11
+# npm install -g grunt-cli gulp bower
 
 # Git
 cinst -y git.install
