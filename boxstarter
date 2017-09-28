@@ -10,8 +10,6 @@ cinst -y DotNet4.5
 cinst -y powershell
 Update-ExecutionPolicy RemoteSigned
 
-if (Test-PendingReboot) { Invoke-Reboot }
-
 # Install Windows Features
 
 #Enable Web Services
@@ -21,7 +19,6 @@ cinst IIS-ISAPIExtensions -source WindowsFeatures
 cinst IIS-ASPNet45 -source WindowsFeatures
 cinst WCF-Http-Activation -source WindowsFeatures 
 
-if (Test-PendingReboot) { Invoke-Reboot }
 
 # Console
 cinst -y cmder
@@ -49,7 +46,6 @@ cinst -y git.install
 cinst -y poshgit
 cinst -y git-credential-winstore
 
-if (Test-PendingReboot) { Invoke-Reboot }
 
 # Visual studio
 
@@ -59,13 +55,9 @@ cinst -y visualstudio2017-workload-nativedesktop
 cinst -y visualstudio2017-workload-node
 cinst -y resharper-platform
 
-if (Test-PendingReboot) { Invoke-Reboot }
-
 # Dev Requirements
 
 cinst -y redis-64
-
-if (Test-PendingReboot) { Invoke-Reboot }
 
 # Browsers
 
